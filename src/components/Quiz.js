@@ -27,13 +27,15 @@ export default function Quiz() {
             /** increase the trace value by one using MoveNextAction */
             dispatch(MoveNextQuestion());
 
-            dispatch(PushAnswer(check))
+            /** insert a new result in the array */
+            if (result.length <= trace) {
+                dispatch(PushAnswer(check))
+            }
         }
     }
 
     /** Prev button event handler */
     function onPrev() {
-        console.log('On onPrev click');
         if (trace > 0) {
             /** decrease the trace value by one using MovePrevAction */
             dispatch(MovePrevQuestion());
@@ -57,7 +59,7 @@ export default function Quiz() {
             <Questions onChecked={onChecked} />
 
             <div className='grid'>
-                <button className='btn prev' onClick={onPrev}>Prev</button>
+                { trace > 0 ? <button className='btn prev' onClick={onPrev}>Prev</button> : <div></div>}
                 <button className='btn next' onClick={onNext}>Next</button>
             </div>
         </div>
