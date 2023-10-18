@@ -6,7 +6,7 @@ import ResultTable from './ResultTable';
 import { useDispatch } from 'react-redux';
 
 /** import actions */
-import { resetALlAction, resetAllAction } from '../redux/question_reducer';
+import { resetAllAction } from '../redux/question_reducer';
 import { resetResultAction } from '../redux/result_reducer';
 
 
@@ -27,27 +27,27 @@ export default function Result() {
             <div className='result flex-center'>
                 <div className='flex'>
                     <span>Username</span>
-                    <span className='bold'>Snehal</span>
+                    <span className='bold'></span>
                 </div>
                 <div className='flex'>
                     <span>Total Quiz Points : </span>
-                    <span className='bold'>50</span>
+                    <span className='bold'></span>
                 </div>
                 <div className='flex'>
                     <span>Total Questions : </span>
-                    <span className='bold'>05</span>
+                    <span className='bold'></span>
                 </div>
                 <div className='flex'>
                     <span>Total Attempts : </span>
-                    <span className='bold'>03</span>
+                    <span className='bold'></span>
                 </div>
                 <div className='flex'>
                     <span>Total Earn Points : </span>
-                    <span className='bold'>30</span>
+                    <span className='bold'></span>
                 </div>
                 <div className='flex'>
                     <span>Quiz Result</span>
-                    <span className='bold'>Passed</span>
+                    <span className='bold'></span>
                 </div>
             </div>
 

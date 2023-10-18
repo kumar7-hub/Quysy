@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root{
-  --primary-color: #0DFF92;
+  /* --primary-color: #0DFF92; */
+  --primary-color: #ff0ddf;
+  /* --dark-color:#222222; */
   --dark-color:#222222;
+  /* --light-color: #f0f0f0; */
   --light-color: #f0f0f0;
 }
 
@@ -77,11 +80,12 @@ body, html{
 
 .next{
     background-color: var(--primary-color);
-    justify-self: flex-end;
+    justify-self: flex-end; 
 }
 
 .prev{
-    background-color: #faff5a;
+    /* background-color: #faff5a; */
+    background-color: #fcff5a;
     justify-self: flex-start;
 }
 

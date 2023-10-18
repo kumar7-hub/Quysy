@@ -20,7 +20,7 @@
 
 .container .flex span.achive {
     font-weight: bold;
-    color: #ff2a66;
+    color: #ff2a66; 
     color: #2aff95;
 }
 
@@ -45,5 +45,6 @@ table {
 }
 
 .table-header > tr > td{
-    border: 1px solid #faff5a;   
+    /* border: 1px solid #faff5a; */
+    border: 1px solid #5aff5a;
 }

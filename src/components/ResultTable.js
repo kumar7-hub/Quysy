@@ -14,10 +14,10 @@ export default function ResultTable() {
                 </thead>
                 <tbody>
                     <tr className='table-body'>
-                        <td>Snehal</td>
-                        <td>03</td>
-                        <td>20</td>
-                        <td>Passed</td>
+                        <td>‎</td>
+                        <td>‎</td>
+                        <td>‎</td>
+                        <td>‎</td>
                     </tr>
                 </tbody>
             </table>
