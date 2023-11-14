@@ -23,7 +23,7 @@ export default function Quiz() {
     /** Next button event handler */
     function onNext() {
         console.log('On next click');
-        if (trace < queue.length) {
+        if (trace < queue.length) { 
             /** increase the trace value by one using MoveNextAction */
             dispatch(MoveNextQuestion());
 
@@ -32,6 +32,9 @@ export default function Quiz() {
                 dispatch(PushAnswer(check))
             }
         }
+
+        /* reset the value of the checked variable */
+        setChecked(undefined)
     }
 
     /** Prev button event handler */

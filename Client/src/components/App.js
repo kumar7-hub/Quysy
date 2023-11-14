@@ -6,6 +6,7 @@ import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
 import Main from './Main';
 import Quiz from './Quiz';
 import Result from './Result';
+import User from './User';
 
 /** react routes */
 const router = createBrowserRouter([
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path : '/result',
     element : <Result></Result>
+  },
+
+  {
+    path : '/user',
+    element : <User></User>
   },
 ])
 

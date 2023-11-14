@@ -3,13 +3,20 @@
     color: #cecece;
 }
 
-.start{
+/* .start{
     display: flex;
     justify-content: center;
+    padding-top: 2em;
+} */
+
+.start {
+    display: flex;
+    justify-content: space-around; /* Adjusts space around buttons */
     padding-top: 2em;
 }
 
 .start .btn{
+    margin-right: 10px;
     padding: .2em 1.7em;
     border: none;
     border-radius: .1em;
@@ -17,6 +24,23 @@
     color: #202020;
     text-decoration: none;
     background-color: #faff5a;
+}
+
+.start .btn_user{
+    margin-left: 10px;
+    padding: .2em 1.7em;
+    border: none;
+    border-radius: .1em;
+    font-size: 1.2em;
+    color: #202020;
+    text-decoration: none;
+    background-color: #ff0ddf;
+}
+
+.start .btn_user:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #202020;
 }
 
 #form{

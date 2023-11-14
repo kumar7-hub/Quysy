@@ -11,11 +11,11 @@ export default function Main() {
             <h1 className = 'title text-light'>Quysy</h1>
 
             <ol>
-                <li>You will be asked 10 questions one after another.</li>
-                <li>10 points is awarded for the correct answer.</li>
-                <li>Each question has three options. You can only choose one option.</li>
-                <li>You can review and change answers before submitting quiz.</li>
-                <li>The result will be declared at the end of the quiz.</li>
+                <li>In this quiz, 10 questions will be asked to answer.</li>
+                <li>You will earn 10 points for every question answered correctly.</li>
+                <li>Each question has four options. Select one you believe is correct.</li>
+                <li>You can review and change answers before submitting the quiz.</li>
+                <li>The result is revealed at end of quiz once all questions are answered.</li>
             </ol>
 
             <form id="form">
