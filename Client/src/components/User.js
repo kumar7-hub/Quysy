@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 export default function User() {
     return (
+        // create a form that allows the user to enter a question and four options
+        // the form should have a submit button that sends the question and options to the server
+
         <div className= 'container'>
             <h1 className = 'title text-light'>User Inputted Q&A's</h1>
 
@@ -16,7 +19,9 @@ export default function User() {
 
             </form>
 
-            <Link className='btn_user' to={'/result'}>Cancel</Link>
+            <div className='start'>
+                <Link className='btn_user' to={'/result'}>Cancel</Link>
+            </div>
 
         </div>
     )
