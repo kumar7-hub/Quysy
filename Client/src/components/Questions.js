@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useFetchQuestion } from '../hooks/FetchQuestion'
 import { updateResult } from '../hooks/setResult'
 
-export default function Questions({ onChecked }) {
+export default function Questions({ onChecked, currentQuestionNumber }) {
 
     const [checked, setChecked] = useState(undefined)
     const { trace } = useSelector(state => state.questions);
@@ -31,7 +31,7 @@ export default function Questions({ onChecked }) {
 
     return (
         <div className='questions'>
-            <h2 className='text-light'>{questions?.question}</h2>
+            <h2 className='text-light'>{`${currentQuestionNumber}. ${questions?.question}`}</h2>
 
             <ul key={questions?.id}>
                 {

@@ -16,13 +16,16 @@ export default function Quiz() {
     const { queue, trace } = useSelector(state => state.questions);
     const dispatch = useDispatch()
 
+    const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1)
+
     useEffect(() => {
         //console.log(state)
-    })
+        setCurrentQuestionNumber(trace + 1)
+    }, [trace]);
 
     /** Next button event handler */
     function onNext() {
-        console.log('On next click');
+        // console.log('On next click');
         if (trace < queue.length) { 
             /** increase the trace value by one using MoveNextAction */
             dispatch(MoveNextQuestion());
@@ -46,7 +49,7 @@ export default function Quiz() {
     }
 
     function onChecked(check) {
-        console.log(check)
+        // console.log(check)
         setChecked(check)
     }
 
@@ -59,7 +62,7 @@ export default function Quiz() {
             <h1 className = 'title text-light'>Questions</h1>
 
             {/** display questions */}
-            <Questions onChecked={onChecked} />
+            <Questions onChecked={onChecked} currentQuestionNumber={currentQuestionNumber} />
 
             <div className='grid'>
                 { trace > 0 ? <button className='btn prev' onClick={onPrev}>Prev</button> : <div></div>}
