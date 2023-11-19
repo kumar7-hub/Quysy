@@ -18,7 +18,7 @@ export default function Main() {
     return (
         <div className = 'container'>
             <h1 className = 'title text-light'>Quysy</h1>
-
+        <div className='result flex-center'>
             <ol>
                 <li>In this quiz, 10 questions will be asked to answer.</li>
                 <li>You will earn 10 points for every question answered correctly.</li>
@@ -26,6 +26,7 @@ export default function Main() {
                 <li>You can review and change answers before submitting the quiz.</li>
                 <li>The result is revealed at end of quiz once all questions are answered.</li>
             </ol>
+        </div>
 
             <form id="form">
                 <input ref={inputRef} className='userid' type="text" placeholder="Username*" />

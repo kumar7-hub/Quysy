@@ -13,9 +13,18 @@
     display: flex;
     justify-content: space-around; /* Adjusts space around buttons */
     padding-top: 2em;
+} 
+
+.start_user {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping if buttons exceed the container width */
+    gap: 40px; /* Add some space between buttons */
+    margin-top: 4em; /* Move the buttons down a bit more */
 }
 
-.start .btn{
+.start .btn,
+.start .btn_user {
     margin-right: 10px;
     padding: .2em 1.7em;
     border: none;
@@ -23,21 +32,42 @@
     font-size: 1.2em;
     color: #202020;
     text-decoration: none;
+    /* background-color: #faff5a; */
+}
+.start .btn {
     background-color: #faff5a;
 }
 
-.start .btn_user{
-    margin-left: 10px;
+.start .btn_user {
+    background-color: #ff0ddf;
+}
+.start_user .btn_user,
+.start_user .btn_cancel,
+.start_user .btn_reset {
     padding: .2em 1.7em;
     border: none;
     border-radius: .1em;
     font-size: 1.2em;
     color: #202020;
     text-decoration: none;
+}
+
+.start_user .btn_user {
     background-color: #ff0ddf;
 }
 
-.start .btn_user:hover{
+.start_user .btn_cancel {
+    background-color: #faff5a;
+}
+
+.start_user .btn_reset {
+    background-color: #ff0000;
+}
+
+.start .btn_user:hover,
+.start_user .btn_user:hover,
+.start_user .btn_cancel:hover,
+.start_user .btn_reset:hover {
     cursor: pointer;
     background-color: #f0f0f0;
     color: #202020;
@@ -46,10 +76,26 @@
 #form{
     display: flex;
     justify-content: center;
-    margin-top: 4em;
+    margin-top: 3em;
 }
 
 #form .userid{
+    padding: .7em 2em;
+    width: 50%;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
+#form_user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4em;
+}
+
+#form_user .userid{
+    margin-bottom: 20px;
     padding: .7em 2em;
     width: 50%;
     border: none;
