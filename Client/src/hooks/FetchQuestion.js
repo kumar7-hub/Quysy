@@ -54,3 +54,14 @@ export const MovePrevQuestion = () => async (dispatch) => {
         console.log(error);
     }
 }
+
+/** Add custom question */
+export const addCustomQuestion = (questionData) => async (dispatch) => {
+    try {
+        console.log('Adding custom question:', questionData);
+        dispatch(Action.addCustomQuestionAction(questionData));
+    } catch (error) {
+        console.log(error);
+    }
+}
+

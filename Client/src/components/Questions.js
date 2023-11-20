@@ -9,16 +9,21 @@ import { updateResult } from '../hooks/setResult'
 export default function Questions({ onChecked, currentQuestionNumber }) {
 
     const [checked, setChecked] = useState(undefined)
-    const { trace } = useSelector(state => state.questions);
+    const { trace, queue } = useSelector(state => state.questions);
     const result = useSelector(state => state.result.result);
     const [{ isLoading, apiData, serverError}] = useFetchQuestion()
 
-    const questions = useSelector(state => state.questions.queue[state.questions.trace])
+    // const questions = useSelector(state => state.questions.queue[state.questions.trace])
+    const questions = queue[trace];
     const dispatch = useDispatch()
 
     useEffect(() => {
+        // console.log('Current trace:', trace);
+        console.log("Queue:", queue);
+        console.log('Current questions:', questions);
+
         dispatch(updateResult({ trace, checked}))
-    }, [checked])
+    }, [checked, queue])
 
     function onSelect(i) {
         onChecked(i)

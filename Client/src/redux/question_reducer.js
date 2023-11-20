@@ -35,10 +35,25 @@ export const questionReducer = createSlice({
                 answers : [],
                 trace : 0
             }
-        }
+        },
+        addCustomQuestionAction: (state, action) => {
+            console.log('Adding custom question to array:', action.payload);
+            const { question, options } = action.payload;
+            const newQuestion = {
+                id: state.queue.length + 1,
+                question,
+                options,
+            };
+            console.log('New object:', newQuestion);
+            return {
+                ...state,
+                queue: [...state.queue, newQuestion], // Add new question to the end of the array
+                answers: [...state.answers, 0], // Correct answer is always the first option (index 0)
+            };
+        }    
     }
 })
 
-export const { startExamAction, moveNextAction, movePrevAction, resetAllAction } = questionReducer.actions;
+export const { startExamAction, moveNextAction, movePrevAction, resetAllAction, addCustomQuestionAction } = questionReducer.actions;
 
 export default questionReducer.reducer;

@@ -59,7 +59,7 @@ export default function Result() {
 
             <div className='start'>
                 <Link className='btn' to={'/'} onClick={onRestart}>Restart</Link>
-                <Link className='btn_user' to={'/user'}>User Q&A</Link>
+                <Link className='btn_user' to={'/user'}>Input Q&A's</Link>
             </div>
 
             <div className='container'>
