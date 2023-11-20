@@ -15,12 +15,13 @@ export async function getQuestions(req, res){
 /** insert all questions */
 export async function insertQuestions(req,res){
     try {
-        Questions.insertMany({ questions, answers }, function(err, data){
+        Questions.insertMany({ questions, answers });
             res.json({ msg: "Data Saved Successfully...!"})
-        })
+
     } catch (error) {
-        res.json({ error })
-    }
+        console.error(error);
+        res.status(400).json({"error": "Invalid body"});
+}
 }
 
 /** Delete all questions */
@@ -47,10 +48,10 @@ export async function getResult(req, res){
 export async function storeResult(req, res){
     try {
        const {username, result, attempts, points, achieved} = req.body;
-       if(!username && !result) throw Error('Data not provided');
+       if(!username && !result) throw new Error('Data not provided');
 
-       Results.create({username, result, attempts, points, achieved}, function(err, data))
-        res,json({ msg: "Result saved successfully"})
+       await Results.create({username, result, attempts, points, achieved}, function(err, data))
+        res.json({ msg: "Result saved successfully"})
     } catch (error) {
        res.json({ error }) 
     }
