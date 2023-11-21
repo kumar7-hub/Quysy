@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { schema } = mongoose;
+const { Schema } = mongoose;
 
 /** question model */
 const questionModel = new Schema({
