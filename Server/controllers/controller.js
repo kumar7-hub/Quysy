@@ -15,6 +15,7 @@ export async function getQuestions(req, res){
 /** insert all questions */
 export async function insertQuestions(req,res){
     try {
+        console.log(req.body);
         Questions.insertMany({ questions, answers });
             res.json({ msg: "Data Saved Successfully...!"})
 
@@ -50,8 +51,9 @@ export async function storeResult(req, res){
        const {username, result, attempts, points, achieved} = req.body;
        if(!username && !result) throw new Error('Data not provided');
 
-       await Results.create({username, result, attempts, points, achieved}, function(err, data))
+       await Results.create({username, result, attempts, points, achieved}, function(err, data){
         res.json({ msg: "Result saved successfully"})
+       })
     } catch (error) {
        res.json({ error }) 
     }
