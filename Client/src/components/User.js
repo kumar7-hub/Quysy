@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addCustomQuestion } from '../hooks/FetchQuestion';
+import { postServerData } from '../helper/helper';
+import { resetAllAction } from '../redux/question_reducer';
+import { resetResultAction } from '../redux/result_reducer';
 
 export default function User() {
     const dispatch = useDispatch();
+
+    function onRestart() {
+        dispatch(resetAllAction())
+        dispatch(resetResultAction())
+    }
 
     const initialFormData = {
         question: '',
@@ -29,13 +36,20 @@ export default function User() {
         event.preventDefault();
         // Validate if all fields are filled
         if (formData.question && formData.options.every((option) => option.trim() !== '')) {
-            // Dispatch action to add the user-inputted question
-            dispatch(addCustomQuestion(formData));
-            // Reset form data after submission
-            setFormData(initialFormData);
-            // Display submission message
-            setShowSubmissionMessage(true);
-            setTimeout(() => setShowSubmissionMessage(false), 3000);
+           try {
+                // Make a POST request to the server to add the user-inputted question
+                postServerData(`${process.env.REACT_APP_SERVER_HOSTNAME}/api/questions`, formData, (data) => data);
+                
+                // Reset form data after submission
+                setFormData(initialFormData);
+                // Display submission message
+                setShowSubmissionMessage(true);
+                setTimeout(() => setShowSubmissionMessage(false), 3000);
+
+            } catch (error) {
+                console.error('Error submitting user question:', error);
+            }
+
         } else {
             alert('Please fill in all fields before submitting.');
         }
@@ -76,15 +90,13 @@ export default function User() {
                 ))}
 
                 <div className='start_user'>
-                    <Link className='btn_cancel' to={'/result'}>
-                        Cancel
-                    </Link>
+                    <Link className='btn_cancel' to={'/'} onClick={onRestart}>Home</Link>
                     <input className='btn_reset' type="reset" value="Reset" />
                     <input className='btn_user' type="submit" value="Submit" />
                 </div>
 
                 {showsubmissionMessage && (
-                    <div className='submission-message show'>
+                    <div className='submission-message show glass'>
                         Question and options submitted successfully!
                     </div>
                 )}

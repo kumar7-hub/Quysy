@@ -7,7 +7,7 @@ import router from './router/route.js';
 /** import connection file */
 import connect from './database/conn.js';
 
-const app = express()
+const app = express();
 
 /** app middlewares */
 app.use(morgan('tiny'));
@@ -15,19 +15,18 @@ app.use(cors());
 app.use(express.json());
 config();
 
-
 /** application port */
 const port = process.env.PORT || 8080;
 
 /** routes */
 app.use('/api', router) /** apis */
 
-
+/** routes */
 app.get('/', (req, res) => {
-    try{
-         res.json("Get request")
+    try {
+        res.json('Get Request')
     } catch (error) {
-         res.json(error)
+        res.log(error)
     }
 })
 
@@ -35,12 +34,12 @@ app.get('/', (req, res) => {
 connect().then(() =>{
     try {
         app.listen(port, () => {
-            console.log(`Serrver connected to http://localhost:${port}`)
+            console.log(`Server connected to http://localhost:${port}`)
         })
     } catch (error) {
-        console.log("cannot connect to the server");
+        console.log("Cannot connect to the server");
     }
 }).catch(error => {
-    console.log("Invalid database connection");
+    console.log("Invalid Database Connection");
     console.log(error);
 })

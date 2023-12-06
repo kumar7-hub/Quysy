@@ -47,8 +47,8 @@ export const questionReducer = createSlice({
             console.log('New object:', newQuestion);
             return {
                 ...state,
-                queue: [...state.queue, newQuestion], // Add new question to the end of the array
-                answers: [...state.answers, 0], // Correct answer is always the first option (index 0)
+                queue: [...state.queue, newQuestion],
+                answers: [...state.answers, 0],
             };
         }    
     }

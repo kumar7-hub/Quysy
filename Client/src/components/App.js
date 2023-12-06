@@ -19,18 +19,19 @@ const router = createBrowserRouter([
   {
     path : '/quiz',
     element : <CheckUserExist><Quiz /></CheckUserExist>
-    //element : <Quiz></Quiz>
+    // element : <Quiz></Quiz>
   },
 
   {
     path : '/result',
     element : <CheckUserExist><Result /></CheckUserExist>
-    //element : <Result></Result>
+    // element : <Result></Result>
   },
 
   {
     path : '/user',
-    element : <User></User>
+    element : <CheckUserExist><User /></CheckUserExist>
+    // element : <User></User>
   },
 ])
 

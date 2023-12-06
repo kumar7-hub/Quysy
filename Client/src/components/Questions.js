@@ -13,15 +13,10 @@ export default function Questions({ onChecked, currentQuestionNumber }) {
     const result = useSelector(state => state.result.result);
     const [{ isLoading, apiData, serverError}] = useFetchQuestion()
 
-    // const questions = useSelector(state => state.questions.queue[state.questions.trace])
-    const questions = queue[trace];
+    const questions = apiData[trace];
     const dispatch = useDispatch()
 
     useEffect(() => {
-        // console.log('Current trace:', trace);
-        console.log("Queue:", queue);
-        console.log('Current questions:', questions);
-
         dispatch(updateResult({ trace, checked}))
     }, [checked, queue])
 
@@ -32,10 +27,10 @@ export default function Questions({ onChecked, currentQuestionNumber }) {
     }
 
     if(isLoading) return <h3 className='text-light'>isLoading</h3>
-    if(serverError) return <h3 className='text-light'>{serverError || "Unkown Error"}</h3>
+    if(serverError) return <h3 className='text-light'>{serverError.message || "Unkown Error"}</h3>
 
     return (
-        <div className='questions'>
+        <div className='questions glass'>
             <h2 className='text-light'>{`${currentQuestionNumber}. ${questions?.question}`}</h2>
 
             <ul key={questions?.id}>
@@ -50,7 +45,7 @@ export default function Questions({ onChecked, currentQuestionNumber }) {
                                 onChange={() => onSelect(i)}
                             />
 
-                            <label className='text-primary' htmlFor={`q${i}-option`}>{q}</label>
+                            <label className='text-light' htmlFor={`q${i}-option`}>{q}</label>
                             <div className={`check ${result[trace] === i ? 'checked' : ''}`}></div> 
                             
                         </li>
