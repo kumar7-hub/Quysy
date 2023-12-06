@@ -58,18 +58,27 @@ export async function getResult(req, res) {
 }
 
 /** post all result */
-export async function storeResult(req, res) {
+export async function storeResult(req, res){
     try {
-       const { username, result, attempts, points, achieved } = req.body;
-       if(!username && !result) throw new Error('Data Not Provided');
+        const { username, result, attempts, points, achieved } = req.body;
+        if(!username && !result) {
+             throw new Error('Data not provided...!');
+        }
 
-       Results.create({ username, result, attempts, points, achieved }).then(() => {
-            res.json({ msg: "Result Saved Successfully"})
-       })
-    } catch (error) {
-       res.json({ error }) 
-    }
-}
+        const data = await Results.create({
+            username,
+            result,
+            attempts,
+            points,
+            achieved,
+          });
+      
+          res.json({ msg: "Result saved successfully" });
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ error: 'Internal Server Error' });
+        }
+      }
 
 /** delete all result */
 export async function dropResult(req, res) {
