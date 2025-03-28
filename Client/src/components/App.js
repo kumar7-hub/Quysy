@@ -1,6 +1,6 @@
 import '../styles/App.css';
 
-import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 /** import components */
 import Main from './Main';
